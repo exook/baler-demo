@@ -5,7 +5,7 @@ import baler_compressor.decompressor as decompressor_module
 
 config = config_module.Config
 config.output_path = "./output"
-config.input_path = "./exafel1.npz"
+config.input_path = "./input/exafel1.npz"
 config.compression_ratio = 50
 config.epochs = 2
 config.early_stopping = False
