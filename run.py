@@ -34,55 +34,55 @@ config.verbose = True
 # Run training
 input_data_path = "input/exafel_1.npz"
 output_path = "output/"
-# model, normalization_features, loss_data = trainer_module.run(input_data_path, config)
-# torch.save(model.state_dict(), output_path + "compressed_output/model.pt")
+ model, normalization_features, loss_data = trainer_module.run(input_data_path, config)
+ torch.save(model.state_dict(), output_path + "compressed_output/model.pt")
 
-# # Run compression
-# compressed, names, normalization_features, original_shape = compressor_module.run(
-#     input_data_path,
-#     output_path + "compressed_output/model.pt",
-#     normalization_features,
-#     config,
-# )
+ # Run compression
+ compressed, names, normalization_features, original_shape = compressor_module.run(
+     input_data_path,
+     output_path + "compressed_output/model.pt",
+     normalization_features,
+     config,
+ )
 
-# # Save compressed file to disk
-# np.savez_compressed(
-#     output_path + "compressed_output/compressed.npz",
-#     data=compressed,
-#     names=names,
-#     normalization_features=normalization_features,
-#     original_shape=original_shape,
-# )
-# np.save(output_path + "loss_data.npy", loss_data)
+ # Save compressed file to disk
+ np.savez_compressed(
+     output_path + "compressed_output/compressed.npz",
+     data=compressed,
+     names=names,
+     normalization_features=normalization_features,
+     original_shape=original_shape,
+ )
+ np.save(output_path + "loss_data.npy", loss_data)
 
-# # Run decompression
-# decompressed, names, original_shape = decompressor_module.run(
-#     output_path + "compressed_output/model.pt",
-#     output_path + "compressed_output/compressed.npz",
-#     config,
-# )
+ # Run decompression
+ decompressed, names, original_shape = decompressor_module.run(
+     output_path + "compressed_output/model.pt",
+     output_path + "compressed_output/compressed.npz",
+     config,
+ )
 
-# # Save decompressed file to disk
-# np.savez(
-#     output_path + "decompressed_output/decompressed.npz",
-#     data=decompressed,
-#     names=names,
-# )
+ # Save decompressed file to disk
+ np.savez(
+     output_path + "decompressed_output/decompressed.npz",
+     data=decompressed,
+     names=names,
+ )
 
-original = np.load("input/exafel_1.npz")["data"]
-decompressed = np.load("output/decompressed_output/decompressed.npz")["data"]
+#original = np.load("input/exafel_1.npz")["data"]
+#decompressed = np.load("output/decompressed_output/decompressed.npz")["data"]
 
-import imageio
+#import imageio
 
-images = []
-for i in range(0, len(original)):
-    print(i)
-    fig = helper.plot2D(original[i], decompressed[i])
-    fig.savefig(output_path + "/plot_output/" + str(i) + ".png", bbox_inches="tight")
-    images.append(imageio.imread(output_path + "/plot_output/" + str(i) + ".png"))
-fig = helper.plot2D(original[0], decompressed[0])
-fig.savefig(output_path + "/plot_output/test.png", bbox_inches="tight")
-imageio.mimsave(output_path + "/plot_output/movie.gif", images)
+#images = []
+#for i in range(0, len(original)):
+#    print(i)
+#    fig = helper.plot2D(original[i], decompressed[i])
+#    fig.savefig(output_path + "/plot_output/" + str(i) + ".png", bbox_inches="tight")
+#    images.append(imageio.imread(output_path + "/plot_output/" + str(i) + ".png"))
+#fig = helper.plot2D(original[0], decompressed[0])
+#fig.savefig(output_path + "/plot_output/test.png", bbox_inches="tight")
+#imageio.mimsave(output_path + "/plot_output/movie.gif", images)
 
 # images = []
 # for i in range(0, 75):
