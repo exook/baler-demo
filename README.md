@@ -8,9 +8,8 @@ git clone https://github.com/baler-collaboration/baler-demo.git
 cd baler-demo
 ```
 ```console
-pip install -i https://test.pypi.org/simple/ baler-compressor
+pip install baler-compressor
 ```
 ```console
-python3 run.py
+python3 run.py all
 ```
-# my_baler
