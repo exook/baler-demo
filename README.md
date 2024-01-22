@@ -7,17 +7,24 @@ Baler is a tool used to test the feasibility of compressing different types of s
 Source code repository: https://github.com/baler-collaboration/baler
 
 # Baler Demo
-Run the following commands to demonstrate the usage of Baler as an API
+Baler is a framework, utilizing PyTorch, available as a pip package. This demo provides an example of a script for running baler, which will involve using the package to train, and compress, whilst our script will take care of saving trained models and compressed files to disc. The machine learning models used in baler will be provided from an external directory, baler-models.
 
+Start by cloning the demo repository:
 ```console
 git clone https://github.com/baler-collaboration/baler-demo.git
 ```
 ```console
 cd baler-demo
 ```
+Then, into this directory, clone the baler-models repository which contains our demo model:
+```console
+git clone https://github.com/baler-collaboration/baler-models.git
+```
+Install the Baler framework via pip, at this stage I am certain that there will be a lot of dependencies left to install:
 ```console
 pip install baler-compressor
 ```
+Lastly run the demo script
 ```console
 python3 run.py all
 ```

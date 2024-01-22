@@ -9,7 +9,7 @@ import baler_compressor.compressor as compressor_module
 import baler_compressor.decompressor as decompressor_module
 import baler_compressor.helper as baler_helper
 
-sys.path.append("../baler-models/")
+sys.path.append("./baler-models/")
 import dense_demo as dense_demo_module
 
 # import helper for plotting
